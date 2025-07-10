@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Suporte IA - Construtec</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="suporte.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <div class="logo">🏗️ Construtec IA</div>
+    <nav>
+      <ul>
+        <li><a href="index.html"> Início</a></li>
+        <li><a href="planejamento.html"><i class="fa-solid fa-chart-line"></i> Planejamento</a></li>
+        <li><a href="monitoramento.html"><i class="fa-solid fa-camera"></i> Monitoramento</a></li>
+        <li><a href="seguranca.html"><i class="fa-solid fa-helmet-safety"></i> Segurança</a></li>
+        <li><a href="materiais.html"><i class="fa-solid fa-box"></i> Materiais</a></li>
+        <li><a href="relatorios.html"><i class="fa-solid fa-file-alt"></i> Relatórios</a></li>
+        <li><a href="suporte.html"><i class="fa-solid fa-robot"></i> Suporte IA</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="chat-container">
+    <h1>🤖 Engenheiro Virtual</h1>
+    <div class="chat-box" id="chat">
+      <div class="bot-message">Olá! Sou o Engenheiro Virtual. Como posso ajudar?</div>
+    </div>
+    <form id="chat-form">
+      <input type="text" id="user-input" placeholder="Digite sua pergunta..." required />
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Construtec IA — Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('user-input');
+    const chat = document.getElementById('chat');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const userMessage = input.value;
+      chat.innerHTML += `<div class="user-message">${userMessage}</div>`;
+
+      // Resposta fictícia simulada por IA
+      let resposta = "Estou analisando sua pergunta...";
+
+      if (userMessage.toLowerCase().includes("norma")) {
+        resposta = "Você pode consultar a ABNT NBR 6118 para estruturas de concreto.";
+      } else if (userMessage.toLowerCase().includes("projeto")) {
+        resposta = "Deseja ajuda na leitura do projeto estrutural ou elétrico?";
+      } else if (userMessage.toLowerCase().includes("lei")) {
+        resposta = "Considere a Lei nº 8.666/1993 para licitações e contratos públicos.";
+      }
+
+      setTimeout(() => {
+        chat.innerHTML += `<div class="bot-message">${resposta}</div>`;
+        chat.scrollTop = chat.scrollHeight;
+      }, 800);
+
+      input.value = "";
+    });
+  </script>
+</body>
+</html>
