@@ -1,46 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Segurança - Construtec IA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="seguranca.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segurança no Local - Construtec</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <div class="logo">🏗️ Construtec IA</div>
-    <nav>
-      <ul>
-        <li><a href="index.html"> Início</a></li>
-        <li><a href="planejamento.html"><i class="fa-solid fa-chart-line"></i> Planejamento</a></li>
-        <li><a href="monitoramento.html"><i class="fa-solid fa-camera"></i> Monitoramento</a></li>
-        <li><a href="seguranca.html"><i class="fa-solid fa-helmet-safety"></i> Segurança</a></li>
-        <li><a href="materiais.html"><i class="fa-solid fa-box"></i> Materiais</a></li>
-        <li><a href="relatorios.html"><i class="fa-solid fa-file-alt"></i> Relatórios</a></li>
-        <li><a href="suporte.html"><i class="fa-solid fa-robot"></i> Suporte IA</a></li>
-      </ul>
-    </nav>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-red-600 p-4 text-white text-center text-2xl font-semibold">
+    Monitoramento de Segurança no Local
   </header>
 
-  <main class="page-section">
-    <h1>🦺 Segurança com Inteligência Artificial</h1>
-    <p>Monitore o uso correto de EPIs e previna acidentes com alertas automatizados em tempo real.</p>
+  <main class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-md">
+    <h2 class="text-xl font-bold mb-4">Notificações Automáticas de Segurança</h2>
 
-    <section class="feature-block">
-      <h2>🧠 Verificação de EPIs com IA</h2>
-      <p>O sistema utiliza visão computacional para analisar imagens de trabalhadores e verificar se estão utilizando corretamente os equipamentos de proteção como capacetes, coletes e botas.</p>
-    </section>
+    <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-4">
+      <p class="text-yellow-800 font-medium">
+        ⚠️ Aglomeração detectada na área do almoxarifado às 10:32.
+      </p>
+    </div>
 
-    <section class="feature-block">
-      <h2>🚨 Alertas Imediatos de Perigo</h2>
-      <p>Detecta aglomerações, movimentações perigosas ou situações de risco e envia notificações automáticas para os responsáveis da obra, promovendo uma atuação rápida e preventiva.</p>
-    </section>
+    <div class="bg-red-100 border-l-4 border-red-500 p-4 mb-4">
+      <p class="text-red-800 font-medium">
+        ❗ Funcionário sem EPI detectado na zona de escavação às 09:58.
+      </p>
+    </div>
+
+    <div class="bg-green-100 border-l-4 border-green-500 p-4 mb-4">
+      <p class="text-green-800 font-medium">
+        ✅ Todos os operários identificados com EPIs completos na laje superior (verificação às 08:00).
+      </p>
+    </div>
+
+    <h3 class="font-semibold mt-8">Enviar Alerta Manual</h3>
+    <form id="alertaForm" class="mt-4 space-y-4">
+      <div>
+        <label class="block font-medium">Tipo de Alerta:</label>
+        <select class="w-full p-2 border rounded">
+          <option value="epi">Ausência de EPI</option>
+          <option value="aglomeracao">Aglomeração</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+      <div>
+        <label class="block font-medium">Descrição:</label>
+        <textarea class="w-full p-2 border rounded" rows="3"></textarea>
+      </div>
+      <button type="submit" class="bg-red-600 text-white px-6 py-2 rounded hover:bg-red-700">
+        Enviar Alerta
+      </button>
+    </form>
+
+    <div id="respostaAlerta" class="mt-6 hidden bg-gray-100 p-4 border-l-4 border-red-600">
+      <p class="text-red-700 font-medium">✅ Alerta registrado com sucesso! Equipe de segurança notificada.</p>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Obralntel — Todos os direitos reservados.</p>
-  </footer>
+  <script>
+    const alertaForm = document.getElementById('alertaForm');
+    const respostaAlerta = document.getElementById('respostaAlerta');
+    alertaForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      respostaAlerta.classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>

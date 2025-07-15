@@ -1,73 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Suporte IA - Construtec</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="suporte.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .chat-box {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <div class="logo">🏗️ Obralntel</div>
-    <nav>
-      <ul>
-        <li><a href="index.html"> Início</a></li>
-        <li><a href="planejamento.html"><i class="fa-solid fa-chart-line"></i> Planejamento</a></li>
-        <li><a href="monitoramento.html"><i class="fa-solid fa-camera"></i> Monitoramento</a></li>
-        <li><a href="seguranca.html"><i class="fa-solid fa-helmet-safety"></i> Segurança</a></li>
-        <li><a href="materiais.html"><i class="fa-solid fa-box"></i> Materiais</a></li>
-        <li><a href="relatorios.html"><i class="fa-solid fa-file-alt"></i> Relatórios</a></li>
-        <li><a href="suporte.html"><i class="fa-solid fa-robot"></i> Suporte IA</a></li>
-      </ul>
-    </nav>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-green-700 p-4 text-white text-center text-2xl font-semibold">
+    Suporte com IA - Engenheiro Virtual
   </header>
 
-  <main class="chat-container">
-    <h1>🤖 Engenheiro Virtual</h1>
-    <div class="chat-box" id="chat">
-      <div class="bot-message">Olá! Sou o Engenheiro Virtual. Como posso ajudar?</div>
+  <main class="max-w-3xl mx-auto mt-10 bg-white p-6 rounded-xl shadow-md">
+    <h2 class="text-xl font-bold mb-4">Fale com o Engenheiro Virtual</h2>
+
+    <div class="chat-box bg-gray-50 p-4 rounded border mb-4" id="chatBox">
+      <div class="mb-2"><strong>IA:</strong> Olá! Como posso ajudá-lo com seu projeto de construção hoje?</div>
     </div>
-    <form id="chat-form">
-      <input type="text" id="user-input" placeholder="Digite sua pergunta..." required />
-      <button type="submit">Enviar</button>
+
+    <form id="chatForm" class="flex space-x-2">
+      <input type="text" id="userInput" placeholder="Digite sua pergunta..." class="flex-1 p-2 border rounded" required>
+      <button type="submit" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Enviar</button>
     </form>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Obralntel — Todos os direitos reservados.</p>
-  </footer>
-
   <script>
-    const form = document.getElementById('chat-form');
-    const input = document.getElementById('user-input');
-    const chat = document.getElementById('chat');
+    const chatForm = document.getElementById('chatForm');
+    const userInput = document.getElementById('userInput');
+    const chatBox = document.getElementById('chatBox');
 
-    form.addEventListener('submit', function (e) {
+    chatForm.addEventListener('submit', function (e) {
       e.preventDefault();
+      const pergunta = userInput.value.trim();
+      if (!pergunta) return;
 
-      const userMessage = input.value;
-      chat.innerHTML += `<div class="user-message">${userMessage}</div>`;
+      const userMsg = document.createElement('div');
+      userMsg.innerHTML = `<strong>Você:</strong> ${pergunta}`;
+      chatBox.appendChild(userMsg);
 
-      // Resposta fictícia simulada por IA
-      let resposta = "Estou analisando sua pergunta...";
+      const respostaIA = gerarRespostaSimulada(pergunta);
+      const iaMsg = document.createElement('div');
+      iaMsg.innerHTML = `<strong>IA:</strong> ${respostaIA}`;
+      chatBox.appendChild(iaMsg);
 
-      if (userMessage.toLowerCase().includes("norma")) {
-        resposta = "Você pode consultar a ABNT NBR 6118 para estruturas de concreto.";
-      } else if (userMessage.toLowerCase().includes("projeto")) {
-        resposta = "Deseja ajuda na leitura do projeto estrutural ou elétrico?";
-      } else if (userMessage.toLowerCase().includes("lei")) {
-        resposta = "Considere a Lei nº 8.666/1993 para licitações e contratos públicos.";
-      }
-
-      setTimeout(() => {
-        chat.innerHTML += `<div class="bot-message">${resposta}</div>`;
-        chat.scrollTop = chat.scrollHeight;
-      }, 800);
-
-      input.value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+      userInput.value = '';
     });
+
+    function gerarRespostaSimulada(pergunta) {
+      if (pergunta.toLowerCase().includes("norma") || pergunta.toLowerCase().includes("lei")) {
+        return "De acordo com a norma ABNT NBR 15575, é necessário observar os requisitos de desempenho de edificações habitacionais.";
+      } else if (pergunta.toLowerCase().includes("equipamento")) {
+        return "Para essa tarefa, o equipamento ideal seria a betoneira elétrica com capacidade mínima de 400L.";
+      } else if (pergunta.toLowerCase().includes("projeto")) {
+        return "O projeto deverá seguir as diretrizes do BIM 4D, permitindo simulações temporais da obra.";
+      } else {
+        return "Estou analisando sua pergunta... Em instantes retornarei com uma resposta adequada.";
+      }
+    }
   </script>
 </body>
 </html>

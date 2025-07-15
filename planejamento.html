@@ -1,52 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Planejamento - Construtec IA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="planej.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Planejamento Inteligente - Construtec IA</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-
-<body>
-  <header>
-    <div class="logo">🏗️ Obralntel</div>
-    <nav>
-      <ul>
-        <li><a href="index.html"> Início</a></li>
-        <li><a href="planejamento.html"><i class="fa-solid fa-chart-line"></i> Planejamento</a></li>
-        <li><a href="monitoramento.html"><i class="fa-solid fa-camera"></i> Monitoramento</a></li>
-        <li><a href="seguranca.html"><i class="fa-solid fa-helmet-safety"></i> Segurança</a></li>
-        <li><a href="materiais.html"><i class="fa-solid fa-box"></i> Materiais</a></li>
-        <li><a href="relatorios.html"><i class="fa-solid fa-file-alt"></i> Relatórios</a></li>
-        <li><a href="suporte.html"><i class="fa-solid fa-robot"></i> Suporte IA</a></li>
-      </ul>
-    </nav>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-teal-600 p-4 text-white text-center text-2xl font-semibold">
+    Planejamento Inteligente
   </header>
 
-  <main class="page-section">
-    <h1>📊 Planejamento Inteligente</h1>
-    <p>Utilize a inteligência artificial para prever, organizar e distribuir os recursos da sua obra com eficiência.</p>
+  <main class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-md">
+    <h2 class="text-xl font-bold mb-4">Obtenha um planejamento de obra com apoio da IA</h2>
 
-    <section class="feature-block">
-      <h2>🗓️ Geração Automática de Agendas</h2>
-      <p>O sistema cria cronogramas de obras personalizados com base nos parâmetros do projeto e histórico de execução. A agenda é atualizada em tempo real conforme o andamento da construção.</p>
-    </section>
+    <form id="formPlanejamento" class="space-y-4">
+      <div>
+        <label class="block font-medium">Data de início prevista:</label>
+        <input type="date" class="w-full p-2 border rounded" required>
+      </div>
 
-    <section class="feature-block">
-      <h2>🌦️ Antecipação de Demoras</h2>
-      <p>Usamos dados climáticos, históricos de projetos similares e produtividade da equipe para prever atrasos com antecedência. A IA recomenda ajustes proativos no cronograma.</p>
-    </section>
+      <div>
+        <label class="block font-medium">Local da obra:</label>
+        <input type="text" placeholder="Cidade/UF" class="w-full p-2 border rounded" required>
+      </div>
 
-    <section class="feature-block">
-      <h2>👷 Recomendação de Recursos</h2>
-      <p>Com base nas etapas do projeto e disponibilidade de pessoal e equipamentos, o sistema sugere a melhor alocação de mão de obra e máquinas para otimizar tempo e custo.</p>
-    </section>
+      <div>
+        <label class="block font-medium">Tipo de construção:</label>
+        <select class="w-full p-2 border rounded">
+          <option>Residencial</option>
+          <option>Comercial</option>
+          <option>Industrial</option>
+          <option>Obra Pública</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-medium">Recursos disponíveis:</label>
+        <textarea rows="3" class="w-full p-2 border rounded" placeholder="Ex: 5 pedreiros, 2 mestres de obra, escavadeira..." required></textarea>
+      </div>
+
+      <button type="submit" class="bg-teal-600 text-white px-6 py-2 rounded hover:bg-teal-700">
+        Gerar Planejamento
+      </button>
+    </form>
+
+    <div id="respostaIA" class="mt-8 hidden bg-gray-50 p-4 border-l-4 border-teal-500">
+      <h3 class="font-semibold text-teal-700 mb-2">Sugestão de Planejamento:</h3>
+      <p><strong>Início:</strong> <span id="dataInicio"></span></p>
+      <p><strong>Local:</strong> <span id="local"></span></p>
+      <p><strong>Tipo:</strong> <span id="tipo"></span></p>
+      <p><strong>Distribuição sugerida de recursos:</strong> Alocação otimizada para produtividade máxima com base nos dados informados.</p>
+      <p><strong>Riscos climáticos:</strong> Monitoramento automatizado em tempo real ativado.</p>
+      <p><strong>Agenda inicial:</strong> Criada com base em inteligência preditiva. Você receberá atualizações conforme o andamento.</p>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Obralntel — Todos os direitos reservados.</p>
-  </footer>
+  <script>
+    const form = document.getElementById('formPlanejamento');
+    const resposta = document.getElementById('respostaIA');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const dataInicio = form.querySelector('input[type="date"]').value;
+      const local = form.querySelector('input[type="text"]').value;
+      const tipo = form.querySelector('select').value;
+
+      document.getElementById('dataInicio').innerText = dataInicio;
+      document.getElementById('local').innerText = local;
+      document.getElementById('tipo').innerText = tipo;
+
+      resposta.classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>

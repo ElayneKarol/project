@@ -1,110 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Construtec IA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construtec IA - Início</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <div class="logo">🏗️ Obralntel</div>
+<body class="bg-gradient-to-br from-teal-500 to-teal-700 min-h-screen text-white">
+  <header class="bg-white shadow-md p-4 flex items-center justify-between">
+    <h1 class="text-2xl font-bold text-teal-600">Construtec IA</h1>
     <nav>
-      <ul>
-        <li><a href="planejamento.html"><i class="fa-solid fa-chart-line"></i> Planejamento</a></li>
-        <li><a href="monitoramento.html"><i class="fa-solid fa-camera"></i> Monitoramento</a></li>
-        <li><a href="seguranca.html"><i class="fa-solid fa-helmet-safety"></i> Segurança</a></li>
-        <li><a href="materiais.html"><i class="fa-solid fa-box"></i> Materiais</a></li>
-        <li><a href="relatorios.html"><i class="fa-solid fa-file-alt"></i> Relatórios</a></li>
-        <li><a href="suporte.html"><i class="fa-solid fa-robot"></i> Suporte IA</a></li>
+      <ul class="flex space-x-4 text-teal-600 font-medium">
+        <li><a href="planejamento.html">Planejamento</a></li>
+        <li><a href="monitoramento.html">Monitoramento</a></li>
+        <li><a href="seguranca.html">Segurança</a></li>
+        <li><a href="materiais.html">Materiais</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
+        <li><a href="login.html" class="text-red-500">Sair</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-  <div class="hero-content">
-    <div class="hero-text">
-      <h1>Simplificando a Construção com Inteligência Artificial</h1>
-      <p>Automação, previsão e controle total em tempo real para obras públicas e privadas.</p>
-    </div>
-    <div class="hero-image">
-      <img src="assets/img/_️_Construtec_IA-removebg-preview.png" alt="App Construtec IA" />
-    </div>
-  </div>
-</section>
+  <main class="p-10">
+    <section class="max-w-4xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Bem-vindo ao Assistente de Obra Construtec IA</h2>
+      <p class="mb-4 text-lg">Otimize sua obra com inteligência artificial. Escolha abaixo o que deseja fazer:</p>
 
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        <a href="planejamento.html" class="bg-white text-teal-700 p-6 rounded-xl shadow-md hover:bg-teal-50">
+          <h3 class="text-xl font-semibold mb-2">🗓️ Planejamento</h3>
+          <p>Receba um plano estratégico para sua obra com base nos seus dados.</p>
+        </a>
 
-  <main>
-    <section id="planejamento">
-      <h2>📊 Planejamento Inteligente</h2>
-      <ul>
-        <li>Geração automática de agendas</li>
-        <li>Antecipação de demoras com base em dados e clima</li>
-        <li>Distribuição otimizada de recursos (trabalho e equipamentos)</li>
-      </ul>
-    </section>
+        <a href="monitoramento.html" class="bg-white text-teal-700 p-6 rounded-xl shadow-md hover:bg-teal-50">
+          <h3 class="text-xl font-semibold mb-2">📷 Monitoramento</h3>
+          <p>Solicite vistorias, envie imagens e receba relatórios automáticos.</p>
+        </a>
 
-    <section id="monitoramento">
-      <h2>📷 Monitoramento com IA</h2>
-      <ul>
-        <li>Conexão com drones e câmeras</li>
-        <li>Detecção automática de defeitos estruturais (BIM vs execução)</li>
-        <li>Relatórios visuais diários</li>
-      </ul>
-    </section>
+        <a href="seguranca.html" class="bg-white text-teal-700 p-6 rounded-xl shadow-md hover:bg-teal-50">
+          <h3 class="text-xl font-semibold mb-2">🦺 Segurança</h3>
+          <p>Receba alertas sobre riscos e segurança diretamente no canteiro.</p>
+        </a>
 
-    <section id="seguranca">
-      <h2>🦺 Segurança no Local</h2>
-      <ul>
-        <li>Verificação de EPIs com visão computacional</li>
-        <li>Alertas automáticos sobre riscos e aglomerações</li>
-      </ul>
-    </section>
+        <a href="materiais.html" class="bg-white text-teal-700 p-6 rounded-xl shadow-md hover:bg-teal-50">
+          <h3 class="text-xl font-semibold mb-2">📦 Materiais</h3>
+          <p>Veja previsões de custos e quantidades de insumos necessários.</p>
+        </a>
 
-    <section id="materiais">
-      <h2>📦 Gestão de Materiais e Custos</h2>
-      <ul>
-        <li>Previsão automática de despesas</li>
-        <li>IA recomenda o melhor momento para compras</li>
-        <li>Relatórios financeiros diários e semanais</li>
-      </ul>
-    </section>
+        <a href="relatorios.html" class="bg-white text-teal-700 p-6 rounded-xl shadow-md hover:bg-teal-50">
+          <h3 class="text-xl font-semibold mb-2">📑 Relatórios</h3>
+          <p>Gere documentos completos e automáticos com dados da obra.</p>
+        </a>
 
-    <section id="relatorios">
-      <h2>📑 Controle de Qualidade</h2>
-      <ul>
-        <li>Checklists inteligentes para inspeções</li>
-        <li>Análise preditiva de falhas por sensores</li>
-        <li>Métricas de desempenho da construção</li>
-      </ul>
-    </section>
-
-    <section id="suporte">
-      <h2>🤖 Chatbot Engenheiro Virtual</h2>
-      <ul>
-        <li>Assistente técnico para dúvidas e normas</li>
-        <li>Auxílio na leitura de projetos e leis</li>
-      </ul>
-    </section>
-
-    <section class="usuarios">
-      <h2>👷‍♂️ Usuários do Sistema</h2>
-      <p>Engenheiros, arquitetos, construtores, empresas de projetos e órgãos públicos.</p>
-    </section>
-
-    <section class="premium">
-      <h2>💎 Versão Premium</h2>
-      <ul>
-        <li>Integração com BIM 4D/5D</li>
-        <li>Avaliação de performance da equipe</li>
-        <li>Gestão de licitações e papelada</li>
-      </ul>
+        <a href="#" class="bg-white text-teal-700 p-6 rounded-xl shadow-md hover:bg-teal-50">
+          <h3 class="text-xl font-semibold mb-2">🤖 Suporte IA</h3>
+          <p>Converse com a IA sobre normas, planejamento, segurança e mais.</p>
+        </a>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Obralntel — Todos os direitos reservados.</p>
+  <footer class="text-center text-sm mt-10 text-white/70">
+    &copy; 2025 Construtec IA. Todos os direitos reservados.
   </footer>
 </body>
 </html>

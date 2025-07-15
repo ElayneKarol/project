@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Relatórios - Construtec IA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="relatorios.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatórios - Construtec</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <div class="logo">🏗️ Obralntel</div>
-    <nav>
-      <ul>
-        <li><a href="index.html"> Início</a></li>
-        <li><a href="planejamento.html"><i class="fa-solid fa-chart-line"></i> Planejamento</a></li>
-        <li><a href="monitoramento.html"><i class="fa-solid fa-camera"></i> Monitoramento</a></li>
-        <li><a href="seguranca.html"><i class="fa-solid fa-helmet-safety"></i> Segurança</a></li>
-        <li><a href="materiais.html"><i class="fa-solid fa-box"></i> Materiais</a></li>
-        <li><a href="relatorios.html"><i class="fa-solid fa-file-alt"></i> Relatórios</a></li>
-        <li><a href="suporte.html"><i class="fa-solid fa-robot"></i> Suporte IA</a></li>
-      </ul>
-    </nav>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-purple-700 p-4 text-white text-center text-2xl font-semibold">
+    Relatórios Inteligentes
   </header>
 
-  <main class="page-section">
-    <h1>📑 Controle de Qualidade e Relatórios</h1>
-    <p>Garanta a excelência da sua obra com análises inteligentes e relatórios automatizados.</p>
+  <main class="max-w-4xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-md">
+    <h2 class="text-xl font-bold mb-6">Geração e Histórico de Relatórios</h2>
 
-    <section class="feature-block">
-      <h2>📋 Lista de Verificação Inteligente</h2>
-      <p>Utilize checklists dinâmicos adaptados a cada etapa da obra, com itens obrigatórios definidos por normas técnicas e boas práticas de engenharia.</p>
-    </section>
+    <form id="formRelatorio" class="space-y-6">
+      <div>
+        <label class="block font-medium">Tipo de Relatório:</label>
+        <select class="w-full p-2 border rounded">
+          <option>Diário</option>
+          <option>Semanal</option>
+          <option>Financeiro</option>
+          <option>Progresso da Obra</option>
+          <option>Qualidade</option>
+        </select>
+      </div>
 
-    <section class="feature-block">
-      <h2>📡 Análise Preditiva com Sensores</h2>
-      <p>Sensores de umidade, temperatura e vibração são monitorados em tempo real para antecipar falhas estruturais e outros riscos à qualidade da construção.</p>
-    </section>
+      <div>
+        <label class="block font-medium">Período:</label>
+        <input type="date" class="w-full p-2 border rounded">
+      </div>
 
-    <section class="feature-block">
-      <h2>📈 Métricas de Qualidade e Relatórios</h2>
-      <p>O sistema gera relatórios automáticos com gráficos, indicadores e histórico de qualidade da obra, facilitando auditorias e decisões técnicas.</p>
+      <button type="submit" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-800">
+        Gerar Relatório
+      </button>
+    </form>
+
+    <div id="relatorioGerado" class="mt-8 hidden bg-gray-100 p-4 border-l-4 border-purple-700">
+      <h3 class="font-semibold mb-2">📑 Relatório Gerado:</h3>
+      <p>O relatório foi gerado com sucesso e está disponível para download.</p>
+      <a href="#" class="text-purple-700 underline">Baixar Relatório PDF</a>
+    </div>
+
+    <section class="mt-10">
+      <h3 class="font-bold text-lg mb-4">Histórico de Relatórios</h3>
+      <ul class="space-y-2">
+        <li class="bg-gray-50 p-3 rounded border">📅 [10/07/2025] - Relatório Semanal - <a href="#" class="text-purple-700 underline">Download</a></li>
+        <li class="bg-gray-50 p-3 rounded border">📅 [03/07/2025] - Relatório de Qualidade - <a href="#" class="text-purple-700 underline">Download</a></li>
+        <li class="bg-gray-50 p-3 rounded border">📅 [01/07/2025] - Relatório Diário - <a href="#" class="text-purple-700 underline">Download</a></li>
+      </ul>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Obralntel — Todos os direitos reservados.</p>
-  </footer>
+  <script>
+    const formRelatorio = document.getElementById('formRelatorio');
+    const relatorioGerado = document.getElementById('relatorioGerado');
+
+    formRelatorio.addEventListener('submit', function (e) {
+      e.preventDefault();
+      relatorioGerado.classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>

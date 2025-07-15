@@ -1,51 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Materiais - Construtec IA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="materiais.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Materiais e Custos - Construtec</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <div class="logo">🏗️ Obralntel </div>
-    <nav>
-      <ul>
-        <li><a href="index.html"> Início</a></li>
-        <li><a href="planejamento.html"><i class="fa-solid fa-chart-line"></i> Planejamento</a></li>
-        <li><a href="monitoramento.html"><i class="fa-solid fa-camera"></i> Monitoramento</a></li>
-        <li><a href="seguranca.html"><i class="fa-solid fa-helmet-safety"></i> Segurança</a></li>
-        <li><a href="materiais.html"><i class="fa-solid fa-box"></i> Materiais</a></li>
-        <li><a href="relatorios.html"><i class="fa-solid fa-file-alt"></i> Relatórios</a></li>
-        <li><a href="suporte.html"><i class="fa-solid fa-robot"></i> Suporte IA</a></li>
-      </ul>
-    </nav>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-yellow-600 p-4 text-white text-center text-2xl font-semibold">
+    Gestão de Materiais e Custos
   </header>
 
-  <main class="page-section">
-    <h1>📦 Gestão de Materiais e Custos</h1>
-    <p>Controle financeiro eficiente e estratégico com ajuda da inteligência artificial.</p>
+  <main class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-md">
+    <h2 class="text-xl font-bold mb-6">Previsão de Despesas e Controle de Compras</h2>
 
-    <section class="feature-block">
-      <h2>💰 Previsão Automática de Despesas</h2>
-      <p>Com base nos dados do projeto, cronograma e histórico de obras anteriores, o sistema antecipa os gastos esperados ao longo da execução da obra.</p>
-    </section>
+    <form id="formMateriais" class="space-y-6">
+      <div>
+        <label class="block font-medium">Material:</label>
+        <input type="text" class="w-full p-2 border rounded" placeholder="Ex: Cimento, Areia, Aço...">
+      </div>
 
-    <section class="feature-block">
-      <h2>📆 Melhor Momento para Compra</h2>
-      <p>A IA analisa o cronograma de execução e sugere o período ideal para aquisição de materiais, reduzindo desperdícios e evitando estoques parados.</p>
-    </section>
+      <div>
+        <label class="block font-medium">Quantidade Necessária:</label>
+        <input type="number" class="w-full p-2 border rounded" placeholder="Ex: 100">
+      </div>
 
-    <section class="feature-block">
-      <h2>📊 Relatórios Financeiros</h2>
-      <p>Geração automática de relatórios financeiros diários e semanais com gráficos e dados detalhados de entradas, saídas e projeções futuras.</p>
-    </section>
+      <div>
+        <label class="block font-medium">Data Prevista para Uso:</label>
+        <input type="date" class="w-full p-2 border rounded">
+      </div>
+
+      <button type="submit" class="bg-yellow-600 text-white px-6 py-2 rounded hover:bg-yellow-700">
+        Gerar Previsão
+      </button>
+    </form>
+
+    <div id="resultadoMateriais" class="mt-8 hidden bg-gray-100 p-4 border-l-4 border-yellow-600">
+      <h3 class="font-semibold mb-2">📦 Resultado Simulado:</h3>
+      <ul class="list-disc list-inside">
+        <li>Valor estimado: R$ 3.250,00</li>
+        <li>Compra ideal em: 10 dias antes da data de uso</li>
+        <li>Fornecedor sugerido: Construsul LTDA</li>
+      </ul>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Obralntel — Todos os direitos reservados.</p>
-  </footer>
+  <script>
+    const formMateriais = document.getElementById('formMateriais');
+    const resultado = document.getElementById('resultadoMateriais');
+
+    formMateriais.addEventListener('submit', function (e) {
+      e.preventDefault();
+      resultado.classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>

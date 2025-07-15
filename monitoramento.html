@@ -1,51 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Monitoramento - Construtec IA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="monitoramento.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monitoramento com IA - Construtec</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <div class="logo">🏗️ Construtec IA</div>
-    <nav>
-      <ul>
-        <li><a href="index.html"> Início</a></li>
-        <li><a href="planejamento.html"><i class="fa-solid fa-chart-line"></i> Planejamento</a></li>
-        <li><a href="monitoramento.html"><i class="fa-solid fa-camera"></i> Monitoramento</a></li>
-        <li><a href="seguranca.html"><i class="fa-solid fa-helmet-safety"></i> Segurança</a></li>
-        <li><a href="materiais.html"><i class="fa-solid fa-box"></i> Materiais</a></li>
-        <li><a href="relatorios.html"><i class="fa-solid fa-file-alt"></i> Relatórios</a></li>
-        <li><a href="suporte.html"><i class="fa-solid fa-robot"></i> Suporte IA</a></li>
-      </ul>
-    </nav>
+<body class="bg-gray-100 min-h-screen">
+  <header class="bg-indigo-600 p-4 text-white text-center text-2xl font-semibold">
+    Monitoramento com IA
   </header>
 
-  <main class="page-section">
-    <h1>📷 Monitoramento com Inteligência Artificial</h1>
-    <p>Acompanhe sua obra em tempo real com tecnologia de visão computacional e relatórios automáticos.</p>
+  <main class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-xl shadow-md">
+    <h2 class="text-xl font-bold mb-4">Solicite uma vistoria automatizada</h2>
 
-    <section class="feature-block">
-      <h2>🚁 Visões Aéreas com Drones e Câmeras</h2>
-      <p>Integração com drones e câmeras de alta definição permite capturar imagens aéreas e registrar todo o progresso da construção de forma automatizada.</p>
-    </section>
+    <form id="formMonitoramento" class="space-y-4">
+      <div>
+        <label class="block font-medium">Local da vistoria:</label>
+        <input type="text" class="w-full p-2 border rounded" required>
+      </div>
 
-    <section class="feature-block">
-      <h2>🧱 Detecção de Defeitos com BIM</h2>
-      <p>O sistema compara as imagens reais com o projeto BIM em tempo real, identificando falhas estruturais, desvios e áreas incompletas com precisão.</p>
-    </section>
+      <div>
+        <label class="block font-medium">Data da captura das imagens:</label>
+        <input type="date" class="w-full p-2 border rounded" required>
+      </div>
 
-    <section class="feature-block">
-      <h2>📝 Relatórios Visuais de Progresso</h2>
-      <p>Relatórios automáticos com imagens, marcações e dados atualizados diariamente, permitindo análises detalhadas e tomada de decisão rápida.</p>
-    </section>
+      <div>
+        <label class="block font-medium">Imagens da obra:</label>
+        <input type="file" multiple accept="image/*" class="w-full p-2 border rounded" required>
+      </div>
+
+      <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700">
+        Enviar para Vistoria
+      </button>
+    </form>
+
+    <div id="respostaVistoria" class="mt-8 hidden bg-gray-50 p-4 border-l-4 border-indigo-500">
+      <h3 class="font-semibold text-indigo-700 mb-2">Resultado da Análise IA:</h3>
+      <ul class="list-disc ml-5">
+        <li>Defeitos estruturais identificados: Nenhum crítico.</li>
+        <li>Comparação com projeto BIM: Dentro dos padrões esperados.</li>
+        <li>Progresso da obra: 47% concluído (estimativa).</li>
+        <li>Relatório completo enviado por e-mail cadastrado.</li>
+      </ul>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Obralntel — Todos os direitos reservados.</p>
-  </footer>
+  <script>
+    const form = document.getElementById('formMonitoramento');
+    const resposta = document.getElementById('respostaVistoria');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      resposta.classList.remove('hidden');
+    });
+  </script>
 </body>
 </html>
