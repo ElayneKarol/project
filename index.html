@@ -10,6 +10,12 @@
   <header class="bg-green-700 text-white p-6 shadow">
     <h1 class="text-3xl font-bold text-center">Construtec</h1>
     <p class="text-center text-sm mt-1">Inteligência Artificial aplicada à Construção Civil</p>
+    <div class="text-right mt-4">
+  <button onclick="logout()" class="bg-white text-green-700 px-4 py-1 rounded hover:bg-gray-100 text-sm">
+    Sair
+  </button>
+</div>
+
   </header>
 
   <main class="max-w-5xl mx-auto py-10 px-6">
@@ -59,4 +65,15 @@
     &copy; 2025 Construtec. Todos os direitos reservados.
   </footer>
 </body>
+<script>
+  // Redireciona para login se não estiver logado
+  if (localStorage.getItem("logado") !== "true") {
+    window.location.href = "login.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("logado");
+    window.location.href = "login.html";
+  }
+</script>
 </html>

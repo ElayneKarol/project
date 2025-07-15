@@ -1,54 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Planejamento Inteligente</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Construtec</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800 min-h-screen">
-  <header class="bg-green-700 text-white p-6 shadow">
-    <h1 class="text-3xl font-bold text-center">Planejamento Inteligente</h1>
-  </header>
-
-  <main class="max-w-4xl mx-auto p-6 mt-8 bg-white rounded shadow">
-    <section class="mb-6">
-      <h2 class="text-xl font-semibold mb-2">Assistente de Planejamento</h2>
-      <p class="text-gray-700">Preencha as informações abaixo para gerar um plano personalizado para sua obra:</p>
-    </section>
-
-    <form class="space-y-6">
-      <div>
-        <label class="block font-medium text-sm text-gray-700 mb-1">Tipo de Obra</label>
-        <input type="text" placeholder="Residencial, Comercial, Reforma..." class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500">
-      </div>
-
-      <div>
-        <label class="block font-medium text-sm text-gray-700 mb-1">Área Total (m²)</label>
-        <input type="number" placeholder="Ex: 120" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500">
-      </div>
-
-      <div>
-        <label class="block font-medium text-sm text-gray-700 mb-1">Prazo Estimado (em meses)</label>
-        <input type="number" placeholder="Ex: 6" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500">
-      </div>
-
-      <div>
-        <label class="block font-medium text-sm text-gray-700 mb-1">Orçamento Disponível (R$)</label>
-        <input type="number" placeholder="Ex: 150000" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500">
-      </div>
-
-      <button type="submit" class="w-full bg-green-700 text-white py-2 rounded hover:bg-green-800">Gerar Planejamento</button>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-4 text-center">Entrar no Construtec</h1>
+    <form onsubmit="login(event)">
+      <label class="block mb-2 text-sm font-medium">Usuário</label>
+      <input type="text" id="usuario" class="w-full p-2 border rounded mb-4" required />
+      
+      <label class="block mb-2 text-sm font-medium">Senha</label>
+      <input type="password" id="senha" class="w-full p-2 border rounded mb-4" required />
+      
+      <button type="submit" class="w-full bg-green-700 text-white py-2 rounded hover:bg-green-800">
+        Entrar
+      </button>
     </form>
+  </div>
 
-    <div class="mt-10 p-4 bg-gray-100 rounded">
-      <h3 class="font-semibold text-gray-800 mb-2">Sugestão de Planejamento:</h3>
-      <p class="text-sm text-gray-600 italic">(Aqui aparecerá a sugestão gerada com base nas respostas do formulário)</p>
-    </div>
-  </main>
+  <script>
+    function login(e) {
+      e.preventDefault();
+      const usuario = document.getElementById("usuario").value;
+      const senha = document.getElementById("senha").value;
 
-  <footer class="bg-gray-200 text-center py-4 mt-10 text-sm text-gray-600">
-    &copy; 2025 Construtec. Todos os direitos reservados.
-  </footer>
+      // Simulação de login válido
+      if (usuario === "admin" && senha === "123") {
+        localStorage.setItem("logado", "true");
+        window.location.href = "index.html";
+      } else {
+        alert("Usuário ou senha incorretos.");
+      }
+    }
+
+    // Redireciona se já estiver logado
+    if (localStorage.getItem("logado") === "true") {
+      window.location.href = "index.html";
+    }
+  </script>
 </body>
 </html>
