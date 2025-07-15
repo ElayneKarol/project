@@ -3,42 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login - Construtec</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Login - ObraIntel</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
-    <h1 class="text-2xl font-bold mb-4 text-center">Entrar no Construtec</h1>
-    <form onsubmit="login(event)">
-      <label class="block mb-2 text-sm font-medium">Usuário</label>
-      <input type="text" id="usuario" class="w-full p-2 border rounded mb-4" required />
-      
-      <label class="block mb-2 text-sm font-medium">Senha</label>
-      <input type="password" id="senha" class="w-full p-2 border rounded mb-4" required />
-      
-      <button type="submit" class="w-full bg-green-700 text-white py-2 rounded hover:bg-green-800">
-        Entrar
-      </button>
-    </form>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white rounded-lg shadow-lg w-full max-w-5xl flex overflow-hidden">
+    
+    <!-- Imagem lado esquerdo -->
+    <div class="w-1/2 bg-green-100 flex items-center justify-center p-8">
+      <img src="assets/img/_️_Construtec_IA-removebg-preview.png" alt="Construtec App" class="max-h-96">
+    </div>
+
+    <!-- Formulário lado direito -->
+    <div class="w-1/2 bg-white p-10">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Login</h2>
+      <p class="text-gray-600 mb-6">Digite seus dados de acesso no campo abaixo</p>
+      <form onsubmit="logar(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" class="w-full mt-1 px-4 py-2 border rounded-lg bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600" placeholder="Digite seu email" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Senha</label>
+          <input type="password" id="senha" class="w-full mt-1 px-4 py-2 border rounded-lg bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600" placeholder="Digite sua senha" required>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Número</label>
+          <input type="text" id="numero" class="w-full mt-1 px-4 py-2 border rounded-lg bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-600" placeholder="Digite seu número identificador" required>
+        </div>
+        <div class="text-right text-sm">
+          <a href="#" class="text-green-700 hover:underline">Esqueci minha senha</a>
+        </div>
+        <button type="submit" class="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-800 transition">Acessar</button>
+      </form>
+      <div class="text-center mt-4">
+        <a href="#" class="text-sm text-gray-500 hover:underline">Cadastre-se</a>
+      </div>
+    </div>
   </div>
 
   <script>
-    function login(e) {
-      e.preventDefault();
-      const usuario = document.getElementById("usuario").value;
-      const senha = document.getElementById("senha").value;
-
-      // Simulação de login válido
-      if (usuario === "admin" && senha === "123") {
-        localStorage.setItem("logado", "true");
-        window.location.href = "index.html";
-      } else {
-        alert("Usuário ou senha incorretos.");
-      }
-    }
-
-    // Redireciona se já estiver logado
-    if (localStorage.getItem("logado") === "true") {
+    function logar(event) {
+      event.preventDefault();
+      // Simples verificação simulada
+      localStorage.setItem("logado", "true");
       window.location.href = "index.html";
     }
   </script>
